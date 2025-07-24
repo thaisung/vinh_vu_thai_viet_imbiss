@@ -476,3 +476,27 @@ Tín dụng:
 Đại dương kỹ thuật số
 Barath Prabu S
 
+
+
+
+
+
+Cách làm an toàn: giữ nguyên .env, chỉ cập nhật code khác
+Tạm cất file .env ra ngoài:
+
+bash
+Sao chép
+Chỉnh sửa
+mv sleeksoft/.env /tmp/myenv
+Pull code mới nhất từ Git:
+
+bash
+Sao chép
+Chỉnh sửa
+git pull origin main
+Khôi phục lại file .env đã cất đi:
+
+bash
+Sao chép
+Chỉnh sửa
+mv /tmp/myenv sleeksoft/.env
