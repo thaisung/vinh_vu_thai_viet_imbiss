@@ -1,5 +1,5 @@
-103.179.173.226
-JzYb1kgYXed8PQYm
+103.179.173.45
+9oD5MVs3VPVKqx10
 
 ## backup dữ liệu
 mkdir -p /home/backup

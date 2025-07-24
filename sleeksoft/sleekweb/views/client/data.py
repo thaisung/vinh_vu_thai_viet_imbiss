@@ -68,11 +68,11 @@ from django.core.mail import send_mail,EmailMessage
 
 
     
-def data_wix_client(request):
+def data_client(request):
     if request.method == 'GET':
         context = {}
         context['domain'] = settings.DOMAIN
         context['all_data'] = Information.objects.all()
         # print('context:',context)
-        return render(request, 'sleekweb/client/data_wix.html', context, status=200)
+        return render(request, 'sleekweb/client/data.html', context, status=200)
     

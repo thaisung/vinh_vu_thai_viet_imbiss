@@ -5,7 +5,7 @@ from .models import *
 
 from datetime import datetime
 
-from .views.client.home_wix import *
+from .views.client.home import *
 
 protocol = 'https'
 
@@ -15,7 +15,7 @@ class StaticViewSitemap(Sitemap):
 
     def items(self):
         return [
-            'home_wix_client',
+            'home',
         ]
 
     def location(self, item):

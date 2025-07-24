@@ -1,0 +1,274 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="vi">
+    {% load static %}
+<head>
+    {% tailwind_css %}
+    <!-- 1. Thẻ charset, viewport, title -->
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- 2. Thẻ SEO cơ bản -->
+    {% block seo_tag %}{% endblock %}
+
+    <meta name='revisit-after' content='1 days' />
+    <meta name="robots" content="noodp,index,follow" />
+
+    <!-- 3. Favicon -->
+    <link rel="shortcut icon" href="{{domain}}/upload/website/logo.png" type="image/x-icon" />
+
+    <!-- 4. Open Graph tags (Facebook, Zalo...) -->
+    <meta property="og:type" content="website">
+    {% block meta_tag %}{% endblock %}
+    <meta property="og:site_name" content="Hydrinity">
+
+    <!-- 5. Phần còn lại -->
+     <link rel="stylesheet" href="{% static 'ckeditor/ckeditor.css' %}">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+
+    <link rel="stylesheet" href="/static/css/dist/styles.css?v=1743858420">
+    <link rel="stylesheet" href="/static/styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+    <script>
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+        $(document).ready(function() {
+            function formatNumberWithDot(num) {
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            }
+        
+            $('.format_number').each(function() {
+                var originalNumber = $(this).text().trim();
+                var formattedNumber = formatNumberWithDot(originalNumber);
+                $(this).text(formattedNumber);
+            });
+        });
+      </script>
+
+    <style>
+
+        @font-face {
+            font-family: 'inknut antiqua';
+            font-style: normal;
+            font-weight: 700;
+            src: url('//static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/inknutantiqua/v14/Y4GRYax7VC4ot_qNB4nYpBdaKU2_xYj_ZhsqY4NemP8.woff2') format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'inknut antiqua';
+            font-style: normal;
+            font-weight: 400;
+            src: url('//static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/inknutantiqua/v14/Y4GSYax7VC4ot_qNB4nYpBdaKUUF4J3TRBYAWYo.woff2') format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'inknut antiqua';
+            font-style: normal;
+            font-weight: 700;
+            src: url('//static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/inknutantiqua/v14/Y4GRYax7VC4ot_qNB4nYpBdaKU2_xYjwZhsqY4NemP8.woff2') format('woff2');
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'inknut antiqua';
+            font-style: normal;
+            font-weight: 400;
+            src: url('//static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/inknutantiqua/v14/Y4GSYax7VC4ot_qNB4nYpBdaKUUK4J3TRBYAWYo.woff2') format('woff2');
+            unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'inknut antiqua';
+            font-style: normal;
+            font-weight: 700;
+            src: url('//static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/inknutantiqua/v14/Y4GRYax7VC4ot_qNB4nYpBdaKU2_xYj-ZhsqY4Ne.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'inknut antiqua';
+            font-style: normal;
+            font-weight: 400;
+            src: url('//static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/inknutantiqua/v14/Y4GSYax7VC4ot_qNB4nYpBdaKUUE4J3TRBYA.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'din-next-w01-light';
+            font-style: normal;
+            font-weight: 400;
+            src: url('//static.parastorage.com/fonts/v2/eca8b0cd-45d8-43cf-aee7-ca462bc5497c/v1/din-next-w10-light.woff2') format('woff2');
+            unicode-range: U+0401-040C, U+040E-044F, U+0451-045C, U+045E-045F, U+0490-0491, U+2116;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'din-next-w01-light';
+            font-style: normal;
+            font-weight: 400;
+            src: url('//static.parastorage.com/fonts/v2/eca8b0cd-45d8-43cf-aee7-ca462bc5497c/v1/din-next-w02-light.woff2') format('woff2');
+            unicode-range: U+000D, U+0100-010F, U+0111-0130, U+0132-0151, U+0154-015F, U+0162-0177, U+0179-017C, U+01FA-01FF, U+0218-021B, U+0237, U+02C9, U+02D8-02D9, U+02DB, U+02DD, U+0394, U+03A9, U+03C0, U+1E80-1E85, U+1EF2-1EF3, U+2070, U+2074-2079, U+2080-2089, U+2113, U+2126, U+212E, U+2153-2154, U+215B-215E, U+2202, U+2206, U+220F, U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F8FF, U+FB00-FB04;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'din-next-w01-light';
+            font-style: normal;
+            font-weight: 400;
+            src: url('//static.parastorage.com/fonts/v2/eca8b0cd-45d8-43cf-aee7-ca462bc5497c/v1/din-next-w01-light.woff2') format('woff2');
+            unicode-range: U+0020-007E, U+00A0-00FF, U+0110, U+0131, U+0152-0153, U+0160-0161, U+0178, U+017D-017E, U+0192, U+02C6-02C7, U+02DA, U+02DC, U+03BC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'avenir-lt-w01_35-light1475496';
+            font-style: normal;
+            font-weight: 400;
+            src: url('//static.parastorage.com/fonts/v2/af36905f-3c92-4ef9-b0c1-f91432f16ac1/v1/avenir-lt-w05_35-light.woff2') format('woff2');
+            unicode-range: U+0100-012B, U+012E-0130, U+0132-0137, U+0139-0149, U+014C-0151, U+0154-015F, U+0162-0177, U+0179-017C, U+0218-021B, U+02C9, U+02D8-02D9, U+02DB, U+02DD, U+0394, U+03A9, U+03BC, U+03C0, U+1E9E, U+20B9-20BA, U+20BC-20BD, U+2113, U+2126, U+212E, U+2202, U+2206, U+220F, U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F8FF, U+FB01-FB02;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'avenir-lt-w01_35-light1475496';
+            font-style: normal;
+            font-weight: 400;
+            src: url('//static.parastorage.com/fonts/v2/af36905f-3c92-4ef9-b0c1-f91432f16ac1/v1/avenir-lt-w01_35-light1475496.woff2') format('woff2');
+            unicode-range: U+0000, U+000D, U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+0160-0161, U+0178, U+017D-017E, U+0192, U+0237, U+02C6-02C7, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'inknut antiqua', sans-serif !important;
+        }
+
+        body {
+            font-family: 'inknut antiqua', sans-serif !important;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('.product-item .size-option').on('click', function() {
+          var name = $(this).data('name');
+          var price = $(this).data('price');
+    
+          var parent = $(this).closest('.product-item');
+    
+          // Cập nhật tên size
+          parent.find('.name-display').text(name);
+    
+          // Cập nhật giá có format số
+          parent.find('.price-display').text(formatNumber(price));
+        });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+
+<body class="w-full min-h-screen flex flex-col items-center  bg-[#00373d]" >
+    <div class="w-full h-full flex flex-col items-center ">
+        <div id="header" class="fixed w-full  min-h-[141px] border-b-[1px] border-white" style="z-index: 999;">
+            <div class="w-full flex h-[110px]">
+                <div class="flex items-center justify-center border-r-[1px] border-white px-[15px]">
+                    <svg preserveAspectRatio="xMidYMid meet" data-bbox="20 20 160 160" viewBox="20 20 160 160" height="65" width="65" xmlns="http://www.w3.org/2000/svg" data-type="color" role="img" aria-label="Homepage"><defs><style>#comp-kybfd3gp svg [data-color="1"] {fill: #FFF6EB;}
+                    #comp-kybfd3gp svg [data-color="2"] {fill: #F5A68D;}</style></defs>
+                        <g>
+                            <path d="M100 20c-44.1 0-80 35.9-80 80s35.9 80 80 80 80-35.9 80-80-35.9-80-80-80zm0 2.2c42.9 0 77.8 34.9 77.8 77.8 0 16.7-5.3 32.1-14.2 44.8l-53.1-40.5H87l-52 38.5c-8.1-12.3-12.9-27-12.9-42.8.1-42.9 35-77.8 77.9-77.8zm0 155.6c-26.3 0-49.7-13.2-63.7-33.2l51.4-38.1h.3l-16.9 22.6 1.7 1.3 17.8-23.9h1.5l-17.9 39.4 2 .9 18.3-40.3h1.3L88.6 143l2.1.4 7.3-36.9h.9v58.2h2.2v-58.2h1l7 36.6 2.1-.4-7-36.2h1.3l17.6 40.9 2-.9-17.2-40h.2l18.6 23.3 1.7-1.4-15.8-19.8 49.7 37.9c-14.2 19-36.8 31.3-62.3 31.3z" fill="#fff6eb" data-color="1"></path>
+                            <path fill="#f5a68d" d="M120.8 61.2c0 11.488-9.312 20.8-20.8 20.8-11.488 0-20.8-9.312-20.8-20.8 0-11.488 9.312-20.8 20.8-20.8 11.488 0 20.8 9.312 20.8 20.8z" data-color="2"></path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="flex items-center  border-r-[1px] border-white px-[30px] text-[25px] text-white grow">
+                    Thai-Viet Imbiss
+                </div>
+                <div class="flex items-center justify-center border-r-[1px] border-white w-[180px] text-[25px] text-white ">
+                </div>
+                <div class="flex items-center justify-center border-r-[1px] border-white w-[180px] text-[25px] text-white ">
+                </div>
+                <div class="flex items-center justify-center border-r-[1px] border-white w-[180px] text-[25px] text-white ">
+                </div>
+                <div class="flex items-center justify-center   text-[25px] text-white px-[30px]">
+                    <svg preserveAspectRatio="xMidYMid meet" data-bbox="20 60.287 160 79.513" viewBox="20 60.287 160 79.513" height="22" width="46" xmlns="http://www.w3.org/2000/svg" data-type="color" role="img" aria-label="Open site navigation"><defs><style>#comp-kybex08g svg [data-color="1"] {fill: #FFF6EB;}</style></defs>
+                        <g>
+                            <path fill="#fff6eb" d="M179.1 135.3v4.5H20.6v-4.5h158.5z" data-color="1"></path>
+                            <path fill="#fff6eb" d="M179.1 102.9v4.5H20.6v-4.5h158.5z" data-color="1"></path>
+                            <path d="M139.3 80c-1.8 0-3.5-.1-5.3-.2-12.6-.8-21.5-4.2-29.3-7.2-2-.7-3.8-1.5-5.7-2.1-22-7.7-48.2-7.7-77.7.1L20 66.2c30.4-7.9 57.5-7.9 80.3.1 1.9.7 3.9 1.4 5.9 2.2 7.6 2.9 16.1 6.2 28 6.9 14.4.9 29.2-2.1 43.9-9l1.9 4.1c-13.6 6.2-27.3 9.5-40.7 9.5z" fill="#fff6eb" data-color="1"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <style>
+            /* Lớp A: luôn hiển thị - chỉ cao 20% */
+            #header::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 35px; /* 20% của 141px */
+                background-color: #00373d;
+                z-index: -2;
+            }
+
+            /* Lớp B: phủ full, mờ dần */
+            #header::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #00373d;
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+                z-index: -1;
+            }
+
+            /* Khi scroll: hiện lớp B */
+            #header.bg-visible::after {
+                opacity: 1;
+            }
+        </style>
+        <script>
+        $(window).on("scroll", function () {
+            if ($(this).scrollTop() > 20) {
+            $("#header").addClass("bg-visible");
+            } else {
+            $("#header").removeClass("bg-visible");
+            }
+        });
+        </script>
+        <div class="relative w-full h-[920px] overflow-hidden">
+            <img
+                src="upload/bg.avif"
+                alt="Dumpling Soup"
+                class="absolute inset-0 w-full h-full object-cover"
+                fetchpriority="high"
+            />
+        </div>
+    </div>
+</body>
+
+</html>

@@ -37,8 +37,8 @@ from django.views.generic import RedirectView
 
 from django.contrib.auth import views as auth_views
 
-from .views.client.home_wix import *
-from .views.client.data_wix import *
+from .views.client.home import *
+from .views.client.data import *
 
 from sleekweb.sitemaps import *
 from django.contrib.sitemaps.views import sitemap
@@ -50,7 +50,7 @@ sitemaps_dict = {
 urlpatterns = [
 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps_dict}, name='sitemap'),
-    path('', home_wix_client,name='home_wix_client'),
-    path('data-wix/1122334455', data_wix_client,name='data_wix_client'),
+    path('', home_client,name='home_client'),
+    path('data/1122334455', data_client,name='data_client'),
 
 ]
